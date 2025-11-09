@@ -5,7 +5,7 @@ import tempfile
 import pytest
 from datetime import datetime, timedelta
 from database import init_database, insert_book, insert_borrow_record, get_book_by_id, get_patron_borrowed_books
-from library_service import return_book_by_patron
+from services.library_service import return_book_by_patron
 
 @pytest.fixture(autouse=True)
 def setup_db(monkeypatch):

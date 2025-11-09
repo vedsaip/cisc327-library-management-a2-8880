@@ -5,7 +5,7 @@ import tempfile
 import pytest
 from datetime import datetime, timedelta
 from database import init_database, insert_book, insert_borrow_record
-from library_service import get_patron_status_report
+from services.library_service import get_patron_status_report
 
 @pytest.fixture(autouse=True)
 def setup_db(monkeypatch):
@@ -24,7 +24,14 @@ def test_patron_status_report_fields():
     
     report = get_patron_status_report("123456")
     
-    assert "currently_borrowed" in report
-    assert "total_late_fees" in report
-    assert "num_borrowed" in report
-    assert "borrow_history" in report
+    assert "patron_id" in report
+    assert "borrowed_books" in report  
+    assert "total_books_borrowed" in report  
+    assert "total_late_fees" in report  
+    assert "status" in report  
+    
+    # Verify the values make sense
+    assert report["patron_id"] == "123456"
+    assert report["total_books_borrowed"] == 1
+    assert isinstance(report["borrowed_books"], list)
+    assert len(report["borrowed_books"]) == 1

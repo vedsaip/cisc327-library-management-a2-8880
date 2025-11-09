@@ -5,7 +5,7 @@ import tempfile
 import pytest
 from datetime import datetime, timedelta
 from database import init_database, insert_book, insert_borrow_record
-from library_service import calculate_late_fee_for_book
+from services.library_service import calculate_late_fee_for_book
 
 @pytest.fixture(autouse=True)
 def setup_db(monkeypatch):

@@ -4,7 +4,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 import tempfile
 import pytest
 from database import init_database, insert_book, get_book_by_isbn, get_patron_borrowed_books
-from library_service import borrow_book_by_patron
+from services.library_service import borrow_book_by_patron
 
 @pytest.fixture(autouse=True)
 def setup_and_teardown_db(monkeypatch):

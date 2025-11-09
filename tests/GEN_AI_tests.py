@@ -9,7 +9,7 @@ import unittest
 import os
 from datetime import datetime, timedelta
 from database import init_database, get_db_connection, DATABASE
-from library_service import (
+from services.library_service import (
     add_book_to_catalog,
     borrow_book_by_patron,
     return_book_by_patron,

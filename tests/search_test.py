@@ -4,7 +4,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 import tempfile
 import pytest
 from database import init_database, insert_book
-from library_service import search_books_in_catalog
+from services.library_service import search_books_in_catalog
 
 @pytest.fixture(autouse=True)
 def setup_db(monkeypatch):

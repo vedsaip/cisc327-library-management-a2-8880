@@ -1,10 +1,10 @@
 import sys
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import tempfile
 import pytest
 from database import init_database, get_book_by_isbn
-from library_service import add_book_to_catalog
+from services.library_service import add_book_to_catalog
 
 @pytest.fixture(autouse=True)
 def setup_and_teardown_db(monkeypatch):
