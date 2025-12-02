@@ -48,6 +48,14 @@ def init_database():
     conn.commit()
     conn.close()
 
+def clear_database():
+    """Clear all data from the database tables."""
+    conn = get_db_connection()
+    conn.execute('DELETE FROM books')
+    conn.execute('DELETE FROM borrow_records')
+    conn.commit()
+    conn.close()
+
 def add_sample_data():
     """Add sample data to the database if it's empty."""
     conn = get_db_connection()
